@@ -97,6 +97,40 @@ python update_holidays.py --start-year 2025 --end-year 2027 --recreate
 python update_holidays.py --start-year 2025 --end-year 2027 --recreate --force
 ```
 
+### test_update_holidays.py
+**回帰テストスクリプト** - `update_holidays.py`実行時に既存の祝日エントリーが変更されないことを確認します。
+
+**テストの目的：**
+- 新しい祝日が追加される際、既存エントリーが変更・削除されないことを保証
+- データの整合性を維持するための回帰テスト
+
+**検証内容：**
+- 実行前のJSONファイルをバックアップ（システムの一時ディレクトリに作成）
+- `update_holidays.py`を実行
+- 実行前後で既存エントリーを比較
+- 既存エントリーに変更や削除がないことを確認
+- テスト終了後、バックアップは自動削除される
+
+**出力情報：**
+- チェックした国数
+- 追加前後のエントリー数
+- 変更なしのエントリー数（期待値：全既存エントリー）
+- 新規追加エントリー数
+- 変更されたエントリー数（期待値：0）
+- 削除されたエントリー数（期待値：0）
+
+**使用例：**
+```bash
+source venv/bin/activate
+export GCAL_API_KEY="YOUR_API_KEY"
+
+# 回帰テストを実行
+python test_update_holidays.py --start-year 2025 --end-year 2027
+
+# テスト成功時: 終了コード 0
+# テスト失敗時: 終了コード 1（エラー詳細が表示される）
+```
+
 ## Google Calendar API統合
 
 ### カレンダーIDパターン
