@@ -1,0 +1,56 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment variables
+.env
+.env.local
+
+# API Keys (セキュリティ上、APIキーを含むファイルは除外)
+*.key
+*_key.txt
+credentials.json
+secrets.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Test outputs
+*.csv
+*.out
+
+# Backup directories (json bkのようなバックアップディレクトリ)
+*bk/
+*backup/
+backup*/
